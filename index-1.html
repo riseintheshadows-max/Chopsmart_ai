@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1e5b43">
+<title>ChopSmart AI — Good meals. Less waste.</title>
+<style>
+:root{--green:#1e5b43;--green2:#2f7858;--mint:#e8f4eb;--cream:#fbf8f0;--ink:#18352a;--muted:#65766d;--line:#dce7dd;--white:#fff;--gold:#f2c66d;--shadow:0 14px 40px rgba(27,67,48,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{width:min(100% - 32px,960px);margin:auto}
+header{padding:20px 0}.nav{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.1rem;letter-spacing:-.03em}.logo{display:grid;place-items:center;width:42px;height:42px;background:var(--green);color:white;border-radius:14px;font-size:1.35rem}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font-size:.8rem;color:var(--green);font-weight:700}
+.hero{padding:36px 0 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--mint);color:var(--green);padding:7px 12px;border-radius:999px;font-size:.82rem;font-weight:750}.hero h1{font-size:clamp(2.25rem,7vw,4.4rem);line-height:1.02;letter-spacing:-.065em;margin:18px 0}.hero h1 span{color:var(--green2)}.hero p{color:var(--muted);font-size:1.05rem;max-width:490px}.hero-art{background:linear-gradient(145deg,#e9f4e9,#f7e9c7);border-radius:30px;min-height:245px;display:grid;place-items:center;position:relative;overflow:hidden}.bowl{font-size:7rem;filter:drop-shadow(0 15px 12px #23442a22)}.art-note{position:absolute;bottom:18px;left:18px;background:#ffffffdf;padding:10px 14px;border-radius:14px;font-size:.85rem;font-weight:750}
+main{padding-bottom:44px}.panel{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:clamp(18px,4vw,30px);box-shadow:var(--shadow)}.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:22px}.section-head h2{margin:0;font-size:1.45rem;letter-spacing:-.035em}.section-head p{margin:5px 0 0;color:var(--muted);font-size:.93rem}.step{font-size:.78rem;font-weight:800;background:var(--mint);color:var(--green);padding:6px 10px;border-radius:9px;white-space:nowrap}
+label,.label{display:block;font-size:.9rem;font-weight:750;margin-bottom:8px}.help{font-size:.8rem;color:var(--muted);margin-top:6px}.field{margin-bottom:18px}textarea,input,select{width:100%;border:1px solid #cbd9ce;border-radius:12px;padding:12px 13px;background:#fff;color:var(--ink);outline:none}textarea{min-height:90px;resize:vertical}textarea:focus,input:focus,select:focus{border-color:var(--green2);box-shadow:0 0 0 3px #2f78581c}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.checks{display:flex;flex-wrap:wrap;gap:8px}.check{display:flex;align-items:center;gap:7px;padding:9px 11px;border:1px solid var(--line);border-radius:11px;font-size:.87rem;background:#fff}.check input{width:auto;accent-color:var(--green)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}.primary,.secondary{border:0;border-radius:13px;padding:13px 18px;font-weight:800}.primary{background:var(--green);color:white;flex:1;min-width:180px}.primary:hover{background:#164632}.secondary{background:var(--mint);color:var(--green)}.notice{margin-top:14px;color:var(--muted);font-size:.8rem}
+.results{margin-top:24px}.results-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:0 0 15px}.results-head h2{margin:0;font-size:1.5rem}.results-head p{margin:4px 0 0;color:var(--muted);font-size:.9rem}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.meal{background:#fff;border:1px solid var(--line);border-radius:19px;padding:17px;display:flex;flex-direction:column;gap:10px;min-width:0}.meal-top{display:flex;justify-content:space-between;align-items:center;gap:8px}.meal-emoji{font-size:1.7rem}.time{font-size:.76rem;font-weight:750;background:#f5f0df;color:#73591c;border-radius:999px;padding:5px 8px;white-space:nowrap}.meal h3{font-size:1.08rem;line-height:1.2;margin:0;letter-spacing:-.025em}.meal p{font-size:.87rem;color:var(--muted);margin:0}.meal h4{font-size:.8rem;margin:5px 0 3px;text-transform:uppercase;letter-spacing:.04em;color:var(--green)}.meal ul,.meal ol{padding-left:19px;margin:4px 0;font-size:.84rem}.meal li{margin:4px 0}.missing{color:#8a5a15}.good{color:var(--green)}.empty{border:1px dashed #b8cbbd;border-radius:16px;padding:24px;text-align:center;color:var(--muted);background:#ffffffa6}.empty strong{display:block;color:var(--ink);margin-bottom:4px}
+footer{padding:24px 0 34px;color:var(--muted);font-size:.82rem;text-align:center}.footer-brand{font-weight:800;color:var(--green)}.safety{background:#fff8e7;border:1px solid #f0dfb5;border-radius:13px;padding:12px;font-size:.82rem;color:#6d551d;margin-top:14px}
+@media(max-width:720px){.hero{grid-template-columns:1fr;padding-top:20px;gap:18px}.hero-art{min-height:170px}.bowl{font-size:5rem}.grid{grid-template-columns:1fr;gap:0}.cards{grid-template-columns:1fr}.meal{padding:18px}.section-head{align-items:flex-start}.hero h1{max-width:600px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="brand"><span class="logo">🥬</span><span>ChopSmart <span style="color:var(--green2)">AI</span></span></div><span class="pill">Made for everyday kitchens</span></div></header>
+<section class="wrap hero">
+  <div><span class="eyebrow">🥘 Your kitchen, your possibilities</span><h1>Good meals.<br><span>Less waste.</span><br>Spend smarter.</h1><p>Tell us what's in your kitchen. We'll help you turn what you have into simple meal ideas that fit your time and budget.</p></div>
+  <div class="hero-art" aria-label="Illustration of a bowl of food"><div class="bowl">🍲</div><div class="art-note">Start with what you have ✨</div></div>
+</section>
+<main class="wrap">
+<section class="panel" id="planner">
+  <div class="section-head"><div><h2>What's in your kitchen?</h2><p>A few details help us suggest meals that make sense for you.</p></div><span class="step">STEP 01</span></div>
+  <form id="mealForm">
+    <div class="field"><label for="ingredients">1. Ingredients you have</label><textarea id="ingredients" required placeholder="e.g. rice, eggs, tomatoes, onions"></textarea><div class="help">Separate ingredients with commas. Include small things like salt or oil if you have them.</div></div>
+    <div class="grid">
+      <div class="field"><label for="time">2. How much time do you have?</label><select id="time"><option value="15">15 minutes</option><option value="30" selected>30 minutes</option><option value="45">45 minutes</option><option value="60">1 hour</option><option value="120">More than 1 hour</option></select></div>
+      <div class="field"><label for="budget">3. Your budget</label><select id="budget"><option value="0">₦0 — use only what I have</option><option value="small">Small budget (I'll choose the amount)</option><option value="flexible">I can buy a few things</option></select></div>
+    </div>
+    <div class="field"><span class="label">4. Cooking equipment you have</span><div class="checks">
+      <label class="check"><input type="checkbox" name="equipment" value="pot" checked> Pot</label>
+      <label class="check"><input type="checkbox" name="equipment" value="gas"> Gas cooker</label>
+      <label class="check"><input type="checkbox" name="equipment" value="stove"> Stove</label>
+      <label class="check"><input type="checkbox" name="equipment" value="oven"> Oven</label>
+      <label class="check"><input type="checkbox" name="equipment" value="kettle"> Kettle</label>
+      <label class="check"><input type="checkbox" name="equipment" value="pan"> Frying pan</label>
+    </div></div>
+    <div class="grid">
+      <div class="field"><label for="preference">5. Food preference (optional)</label><select id="preference"><option value="any">Anything that works</option><option value="nigerian">Nigerian meals</option><option value="vegetarian">Vegetarian (no meat or fish)</option><option value="light">Something light</option></select></div>
+      <div class="field"><label for="allergies">Any allergies? (optional)</label><input id="allergies" placeholder="e.g. eggs, peanuts, none"></div>
+    </div>
+    <div class="actions"><button class="primary" type="submit">Find My Meals <span aria-hidden="true">→</span></button><button class="secondary" type="reset">Clear form</button></div>
+    <div class="notice">Your answers stay in this page; this demo does not send them to a server.</div>
+  </form>
+</section>
+<section class="results" id="results" aria-live="polite"><div class="results-head"><div><h2>Your meal ideas</h2><p>Fill in your ingredients and tap “Find My Meals”.</p></div></div><div class="empty"><strong>👩🏽‍🍳 Your next meal starts here.</strong>We'll suggest practical options based on what you tell us.</div></section>
+<div class="safety">Food safety tip: wash your hands and produce, use clean water, and cook eggs until both the whites and yolks are firm. Refrigerate leftover rice promptly.</div>
+</main>
+<footer><div class="wrap"><span class="footer-brand">ChopSmart AI</span> · A simple meal-planning demo<br>First version uses built-in recipe matching, not a live AI model. Always check ingredients and food safety.</div></footer>
+<script>
+const recipes=[
+{id:"tomato-egg-rice",name:"Rice with Tomato & Egg Stew",emoji:"🍚",time:30,desc:"Soft rice with a warm tomato-and-egg sauce. A practical option when you have rice, eggs and fresh vegetables.",needs:["rice","egg","tomato","onion"],equipment:["pot"],steps:["Rinse the rice and cook it in clean water until tender.","Chop the tomatoes and onions. Simmer them in a little water until softened.","Beat the eggs and add them to the tomato mixture, stirring gently.","Cook until the eggs are completely set, then serve with the rice."],sub:"If you have oil, salt or pepper, you can use a little. They are optional.",vegetarian:true},
+{id:"tomato-eggs",name:"Tomato & Onion Scrambled Eggs with Rice",emoji:"🍳",time:25,desc:"A simple tomato-and-egg topping served with rice.",needs:["rice","egg","tomato","onion"],equipment:["pot"],steps:["Cook the rice in water until tender.","Chop the tomatoes and onions, then simmer with a little water until soft.","Beat the eggs and stir them into the tomato mixture.","Cook until the eggs are fully set, then serve over rice."],sub:"Oil and seasoning are optional; water can soften the vegetables.",vegetarian:true},
+{id:"one-pot-rice",name:"One-Pot Tomato Rice with Boiled Eggs",emoji:"🥘",time:35,desc:"A one-pot style rice dish with tomato and onion. Actual time depends on your rice.",needs:["rice","egg","tomato","onion"],equipment:["pot"],steps:["Chop the tomatoes and onions, then simmer in water in a pot.","Add rinsed rice and enough water for the rice to cook.","Cover and cook until the rice is tender, checking the water level.","Boil the eggs separately until the whites and yolks are firm, then serve alongside the rice."],sub:"This may take longer than 30 minutes depending on the rice. Use a second pot for the eggs if available.",vegetarian:true},
+{id:"tomato-rice",name:"Simple Tomato Rice",emoji:"🍅",time:30,desc:"Rice cooked with softened tomatoes and onions.",needs:["rice","tomato","onion"],equipment:["pot"],steps:["Rinse the rice.","Chop tomatoes and onions and simmer them in a little water.","Add the rice and enough water for it to cook.","Cover and cook until tender, checking occasionally."],sub:"Add salt or oil only if you already have them.",vegetarian:true},
+{id:"boiled-eggs-tomato",name:"Boiled Eggs with Tomato & Onion",emoji:"🥚",time:20,desc:"A simple option if you have eggs, tomatoes and onions but little time.",needs:["egg","tomato","onion"],equipment:["pot"],steps:["Boil eggs until the whites and yolks are firm.","Chop tomatoes and onions and simmer with a little water until soft.","Peel the eggs and serve with the cooked tomato mixture."],sub:"This is a lighter meal and may not be filling enough for everyone without a side.",vegetarian:true}
+];
+function norm(s){return s.toLowerCase().replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim()}
+function parseIngredients(s){return s.toLowerCase().split(/[,\n;]/).map(x=>norm(x)).filter(Boolean)}
+function hasIngredient(list,ing){const aliases={egg:["egg","eggs"],tomato:["tomato","tomatoes"],onion:["onion","onions"],rice:["rice"]};return (aliases[ing]||[ing]).some(x=>list.some(item=>item===x || item.split(/\s+/).includes(x)))}
+function nice(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+document.getElementById("mealForm").addEventListener("submit",function(e){
+e.preventDefault();
+const list=parseIngredients(document.getElementById("ingredients").value);
+const time=Number(document.getElementById("time").value);
+const budget=document.getElementById("budget").value;
+const equip=[...document.querySelectorAll('input[name="equipment"]:checked')].map(x=>x.value);
+const pref=document.getElementById("preference").value;
+const allergies=norm(document.getElementById("allergies").value);
+const containsEgg=hasIngredient(list,"egg");
+let matches=recipes.filter(r=>r.time<=time && r.needs.every(n=>hasIngredient(list,n)) && r.equipment.some(x=>equip.includes(x)) && !(allergies && allergies!=="none" && r.needs.some(n=>allergies.includes(n) || (n==="egg"&&allergies.includes("egg")))) && !(pref==="vegetarian"&&!r.vegetarian));
+if(matches.length===0 && budget!=="0"){
+ matches=recipes.filter(r=>r.time<=time && r.needs.filter(n=>hasIngredient(list,n)).length>=2 && r.equipment.some(x=>equip.includes(x)) && !(allergies && allergies!=="none" && r.needs.some(n=>allergies.includes(n))));
+}
+matches=matches.slice(0,3);
+const results=document.getElementById("results");
+results.innerHTML='<div class="results-head"><div><h2>Your meal ideas</h2><p>Matched to your ingredients and available time.</p></div><span class="step">'+matches.length+' SUGGESTION'+(matches.length===1?'':'S')+'</span></div>';
+if(!matches.length){results.innerHTML+='<div class="empty"><strong>We need a few more details.</strong>We could not find a close match with the ingredients, time and equipment you entered. Try adding more ingredients, choosing a longer cooking time, or selecting another piece of equipment. If you listed an allergy, keep it in place and choose safe ingredients.</div>';return;}
+const allKnown=["rice","egg","tomato","onion","salt","oil","pepper","water","beans","yam","potato","bread","milk","flour","plantain","garri","noodles","fish","chicken","carrot","spinach"];
+matches.forEach(r=>{
+const present=r.needs.filter(n=>hasIngredient(list,n));
+const missing=r.needs.filter(n=>!hasIngredient(list,n));
+const card=document.createElement("article");card.className="meal";
+card.innerHTML='<div class="meal-top"><span class="meal-emoji">'+r.emoji+'</span><span class="time">⏱ '+r.time+' min</span></div><h3>'+r.name+'</h3><p>'+r.desc+'</p><div><h4>Already listed</h4><ul>'+present.map(n=>'<li class="good">'+nice(n)+'</li>').join('')+'</ul></div>'+
+(missing.length?'<div><h4>Missing</h4><ul>'+missing.map(n=>'<li class="missing">'+nice(n)+' — this recipe may need an adjustment</li>').join('')+'</ul></div>':'<p class="good"><strong>✓ Uses the key ingredients you listed</strong></p>')+
+'<div><h4>How to make it</h4><ol>'+r.steps.map(s=>'<li>'+s+'</li>').join('')+'</ol></div><div><h4>Optional swaps</h4><p>'+r.sub+'</p></div>';
+results.appendChild(card);
+});
+results.scrollIntoView({behavior:"smooth",block:"start"});
+});
+document.getElementById("mealForm").addEventListener("reset",()=>{setTimeout(()=>{document.getElementById("results").innerHTML='<div class="results-head"><div><h2>Your meal ideas</h2><p>Fill in your ingredients and tap “Find My Meals”.</p></div></div><div class="empty"><strong>👩🏽‍🍳 Your next meal starts here.</strong>We’ll suggest practical options based on what you tell us.</div>';},0)});
+</script>
+</body>
+</html>
